@@ -1,7 +1,4 @@
-import {
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -16,7 +13,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   useEffect(() => {
@@ -41,10 +38,9 @@ export default function RootLayout() {
       <Stack
         screenOptions={({ route }) => ({
           headerShown: !route.name.startsWith("tempobook"),
+          animation: "slide_from_right",
         })}
-      >
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-      </Stack>
+      />
       <StatusBar style="auto" />
     </ThemeProvider>
   );
